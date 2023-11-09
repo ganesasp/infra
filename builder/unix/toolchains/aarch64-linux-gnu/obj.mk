@@ -23,4 +23,8 @@
 ################################################################################
 NO_USE_GCC_VERSION_TOOL := 1
 GCC := aarch64-linux-gnu-gcc
+
+#multiple defintions of int __not_empty__ causing issues with GCC in Debian 12
+#https://www.linuxquestions.org/questions/programming-9/multiple-definition-errors-when-linking-on-arch-using-gcc-10-1-0-a-4175675444/
+GCC_FLAGS += -fcommon 
 include $(BUILDER)/toolchains/gcc-local/obj.mk
