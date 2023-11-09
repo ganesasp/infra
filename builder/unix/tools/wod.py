@@ -67,4 +67,4 @@ if __name__ == "__main__":
     p = subprocess.Popen(cmd, stdout=subprocess.PIPE)
     out, err = p.communicate()
 
-    write_on_diff(fname, out);
+    write_on_diff(fname, out.decode("ascii"));

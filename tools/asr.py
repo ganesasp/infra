@@ -37,7 +37,7 @@ class AimSyslogReference(object):
         self.logger.debug("Extracting %s..." % binary)
         # Get all strings from the binary
         try:
-            strings = subprocess.check_output(['strings', binary])
+            strings = subprocess.check_output(['strings', binary], universal_newlines=True)
         except subprocess.CalledProcessError:
             self.logger.error("string extraction failed on file %s." % binary)
             return None
@@ -128,9 +128,7 @@ class AimSyslogReference(object):
         out = self.formats(fmt)
 
         if fname:
-            if type(fname) is file:
-                fname.write(out)
-            elif type(fname) is str:
+            if type(fname) is str:
                 if fname == '-' or fname == 'stdout':
                     sys.stdout.write(out)
                 else:
@@ -138,6 +136,8 @@ class AimSyslogReference(object):
                         raise ValueError("unrecognized write mode '%s'" % mode)
                     with open(fname, mode) as f:
                         f.write(out)
+            else:
+	            fname.write(out)
 
     def _format_text(self):
         s = ""
