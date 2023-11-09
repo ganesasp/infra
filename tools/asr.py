@@ -15,7 +15,7 @@ import logging
 import json
 import pprint
 import yaml
-import StringIO
+import io
 
 class AimSyslogReference(object):
 

@@ -38,7 +38,7 @@ class CFlagsGenerator(CObjectGenerator):
     def Init(self):
         self.width = 0
         for entry in self.members:
-            name=entry.keys()[0]
+            name=list(entry.keys())[0]
             if len(name) > self.width:
                 self.width = + len(name)
 
@@ -47,7 +47,7 @@ class CFlagsGenerator(CObjectGenerator):
         s = ""
         bitcount = 0
         for entry in self.members:
-            name = entry.keys()[0]
+            name = list(entry.keys())[0]
             flag = entry[name]
             value = None
 
@@ -104,5 +104,5 @@ if __name__ == "__main__":
           }
 
     m = CFlagsGenerator(initargs=d)
-    print m.Define()
+    print(m.Define())
 

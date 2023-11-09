@@ -117,10 +117,10 @@ if __name__ == "__main__":
 
     o = CStructGenerator(name='testStruct',
                          members= [ "int x", ['__self__', 'next'], "char* y"])
-    print o.Define() + "\n"
-    print o.TypedefName() + "\n"
-    print o.StructName() + "\n"
-    print o.Declare() + "\n"
+    print(o.Define() + "\n")
+    print(o.TypedefName() + "\n")
+    print(o.StructName() + "\n")
+    print(o.Declare() + "\n")
 
-    print CStructIntMap().Define() + "\n"
-    print CStructStringMap().Define() + "\n"
+    print(CStructIntMap().Define() + "\n")
+    print(CStructStringMap().Define() + "\n")

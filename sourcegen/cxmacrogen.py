@@ -50,7 +50,7 @@ class CXMacroGenerator(CObjectGenerator):
             # hack for enumerations with custom description fields
             for a in args:
                 if type(a) is dict:
-                    arglist.extend(a.values())
+                    arglist.extend(list(a.values()))
                 else:
                     arglist.append(a)
                 if hasattr(self, 'noargs') and self.noargs is True:
@@ -112,11 +112,11 @@ if __name__ == "__main__":
                           'ENTRY4', ] }
 
     m = CXMacroGenerator(name='MY_XMACRO', initargs=data);
-    print m.Define()
+    print(m.Define())
 
 
     data = { 'members' : [ [ 'E01', 'E02', 'E03' ],
                            [ 'E11', 'E12', 'E13' ],
                            [ 'E21', 'E22', 'E23' ] ] }
     m = CXMacroGenerator(name='MY_XMACRO2', initargs=data)
-    print m.Define()
+    print(m.Define())

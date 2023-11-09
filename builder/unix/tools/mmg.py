@@ -128,7 +128,7 @@ class ManifestBase(object):
     def generate_file(self, target):
         s = self.generate_str()
         if target == '-':
-            print s
+            print(s)
         else:
             with open(target, "w") as f:
                 f.write(s)
@@ -166,6 +166,6 @@ if __name__ == "__main__":
     if not os.path.exists(target) or ops.only_if_missing is False:
         data = generate_manifest_data(dirs)[0]
         MakeManifest(data).generate_file(target)
-    print target
+    print(target)
 
 

@@ -269,8 +269,8 @@ import cm
 if __name__ == "__main__":
 
     m = CLogGenerator(name="module");
-    print m.Header();
-    print m.Source();
+    print(m.Header());
+    print(m.Source());
 
 
 

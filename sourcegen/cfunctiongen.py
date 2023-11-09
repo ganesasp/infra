@@ -119,11 +119,11 @@ if __name__ == "__main__":
 
 
     f = CTestFunction()
-    print f.Prototype();
-    print
-    print f.Define()
-    print
-    print f.Call('a', 'b') + ';'
+    print(f.Prototype());
+    print()
+    print(f.Define())
+    print()
+    print(f.Call('a', 'b') + ';')
 
 
     class CTestVoidFunction(CFunctionGenerator):
@@ -136,11 +136,11 @@ if __name__ == "__main__":
 
 
     f = CTestVoidFunction()
-    print f.Prototype()
-    print
-    print f.Define()
-    print
-    print f.Call()
+    print(f.Prototype())
+    print()
+    print(f.Define())
+    print()
+    print(f.Call())
 
 
 

@@ -122,7 +122,7 @@ class CConfigDefsGenerator(CObjectGenerator):
         return "%s_settings" % self.basename
 
     def CDefConstruct(self, d):
-        k = d.keys()[0]
+        k = list(d.keys())[0]
         return CConfigDefGenerator(name=k, initargs=d[k])
 
     ############################################################
@@ -207,7 +207,7 @@ import cm
 
 if __name__ == "__main__":
 
-    print "/* ConfigDefGenerator Test */"
+    print("/* ConfigDefGenerator Test */")
     m = CConfigDefGenerator(name="CONFIG_FOOBAR",
                             default=0x42,
                             doc ="""
@@ -215,16 +215,16 @@ This is the helpstring for CONFIG_FOOBAR
 You should always understand CONFIG_FOOBAR settings
 """)
 
-    print m.Define()
+    print(m.Define())
 
     data = [ { 'CONFIG1' : { 'default':0x42, 'doc': "C1" } },
              { 'CONFIG2' : { 'default':0x41, 'doc': "C2" } },
              { 'CONFIG3' : { 'default':0x10, 'doc': "C3" } }
              ]
 
-    print "/* ConfigDefsGenerator Test */"
+    print("/* ConfigDefsGenerator Test */")
     m = CConfigDefsGenerator(basename="CDEFTEST", defs=data)
 
-    print m.Define()
+    print(m.Define())
 
 

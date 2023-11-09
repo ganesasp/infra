@@ -52,7 +52,7 @@ def listifyElements(list_):
             elif isinstance(e, list):
                 n.append(e)
             elif isinstance(e, dict):
-                for k, v in e.iteritems():
+                for k, v in e.items():
                     n.append([ k, v ])
         return n
 
@@ -89,7 +89,7 @@ class DotDict(dict):
 
     def __getattr__(self, attr):
         item = self.get(attr, None)
-        if type(item) == types.DictType:
+        if type(item) == dict:
             item = DotDict(item)
         return item
 

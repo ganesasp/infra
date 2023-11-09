@@ -193,13 +193,13 @@ class SourceObjectFactory:
                         self.classes[obj] = __cls
                         self.objectTypes[ot] = obj
 
-            except TypeError, e:
+            except TypeError as e:
                 pass
 
 
     def ListClasses(self):
-        for clsname, cls in self.classes.iteritems():
-            print "%s:%s (type=%s)" % (clsname, cls, cls.objectType)
+        for clsname, cls in self.classes.items():
+            print("%s:%s (type=%s)" % (clsname, cls, cls.objectType))
 
 
     def CreateObjectList(self, cls, name=None, data=None):

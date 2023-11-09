@@ -147,21 +147,21 @@ if __name__ == "__main__":
                    dox=DoxManifest,)
 
     if len(sys.argv) == 1:
-        print >>sys.stderr, "Module Manifest Tool"
-        print >>sys.stderr, "usage: %s [%s|all]" % (
-            sys.argv[0], "|".join(classes.keys()))
-        for n in classes.keys():
-            print >>sys.stderr, "%-10s%s" % (
-                n, classes[n].__doc__)
-        print >>sys.stderr, "%-10s%s" % (
-            "all", "Generate all files.")
+        print("Module Manifest Tool", file=sys.stderr)
+        print("usage: %s [%s|all]" % (
+            sys.argv[0], "|".join(list(classes.keys()))), file=sys.stderr)
+        for n in list(classes.keys()):
+            print("%-10s%s" % (
+                n, classes[n].__doc__), file=sys.stderr)
+        print("%-10s%s" % (
+            "all", "Generate all files."), file=sys.stderr)
 
         sys.exit(1);
 
 
     targets = sys.argv[1:]
     if "all" in targets:
-        targets = classes.keys()
+        targets = list(classes.keys())
 
     for name in targets:
         if name in classes:

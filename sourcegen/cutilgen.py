@@ -147,8 +147,8 @@ import cm
 if __name__ == "__main__":
     data = { 'objects': [ 'zmalloc', 'pingGod' ] }
     m = CUtilGenerator(name="module", initargs=data);
-    print m.Header();
-    print m.Define();
+    print(m.Header());
+    print(m.Define());
 
 
 

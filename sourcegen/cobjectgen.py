@@ -61,5 +61,5 @@ if __name__ == "__main__":
 
     sof = CObjectFactory(cm)
     for e in options.e:
-        print "/* expr: %s */" % e
-        print sof.Eval(e)
+        print("/* expr: %s */" % e)
+        print(sof.Eval(e))

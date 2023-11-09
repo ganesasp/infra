@@ -82,7 +82,7 @@ if __name__ == "__main__":
                          'memcmp' ]
              }
     m = CPortingMacroGenerator(name="module", initargs=data);
-    print m.Define();
+    print(m.Define());
 
 
 

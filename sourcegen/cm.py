@@ -114,7 +114,7 @@ class ConfigManager:
                     # Specific object name
                     return [ name ]
 
-                for (k,v) in c.definitions[type_].iteritems():
+                for (k,v) in c.definitions[type_].items():
                     if not k.startswith('__'):
                         if name == "ALL":
                             allList.append(k)
