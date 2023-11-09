@@ -64,7 +64,7 @@ def generate_manifest_data(dirs=["."],
                                         f.write(yaml.dump(dict(name=moduleName), default_flow_style=False))
 
                     if include_yamls and file_ == ".module":
-                        data = yaml.load(open(fname))
+                        data = yaml.full_load(open(fname))
                         moduleName = data['name']
 
                     if moduleName:
@@ -160,7 +160,7 @@ if __name__ == "__main__":
     ap.add_argument("root", help="Relative root directory.")
     ap.add_argument("--only-if-missing", action='store_true')
     ops = ap.parse_args()
-    config = yaml.load(open(ops.config))
+    config = yaml.full_load(open(ops.config))
     dirs = [ os.path.join(ops.root, d) for d in config['directories'] ]
     target = os.path.join(ops.root, config['manifest'])
     if not os.path.exists(target) or ops.only_if_missing is False:

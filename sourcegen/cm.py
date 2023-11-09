@@ -43,7 +43,7 @@ class ConfigManager:
     def ImportYModule(self, filename):
         """Import a YAML definition file"""
         fp = open(filename);
-        self.configs.append(DotDict(yaml.load(fp)))
+        self.configs.append(DotDict(yaml.full_load(fp)))
         fp.close()
 
     def ImportDict(self, d):
